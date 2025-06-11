@@ -1,0 +1,75 @@
+.skills {
+    text-align: center;
+}
+
+.skills__title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--highlight-color);
+    font-family: var(--primary-color);
+}
+
+.skills__carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.carousel__viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel__track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 2.5%;
+    padding: 2.5% 0;
+}
+
+.skill__card {
+    flex: 0 0 18%;
+    text-align: center;
+    opacity: 0.3;
+}
+
+.skill__card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.skill__card p {
+    margin-top: 10px;
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    color: var(--secondary-color);
+    opacity: 0;
+}
+
+.carousel__btn {
+    background: none;
+    border: none;
+    color: var(--hover-color);
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 1;
+    padding: 10px;
+    transition: color 0.5s ease;
+}
+
+.carousel__btn:hover {
+    color: var(--highlight-color);
+}
+
+.skill__card.visible {
+    opacity: 1;
+}
+
+.skill__card.visible p {
+    opacity: 1;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/about_style.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__menu">
+            <a class="header__menu__link" href="index.html">Home</a>
+            <a class="header__menu__link" href="about.html">About me</a>
+        </nav>
+    </header>
+
+    <main class="presentation">
+        <div class="presentation__top">
+            <section class="presentation__content">
+                <h1 class="presentation__content__title">About <strong 
+                class="highlight-title">Me</strong></h1>
+                <p class="presentation__content__text">
+                    I'm Vinícius Freiry, a <span data-age></span> years old Computer Science student passionate about programming and technology. I'm currently focused on developing my skills in both front-end and back-end development. On the front-end side, I work with HTML, CSS, and JavaScript. On the back-end, I'm diving deeper into Java, studying object-oriented programming, algorithms, and data structures.
+                </p>
+                <p class="presentation__content__text">
+                    My journey as a developer is just beginning, and I’m constantly exploring new technologies and best practices to become a full-stack developer. I enjoy solving problems, building clean code, and turning ideas into real projects. I'm also working on improving my English and participating in courses and communities that help me grow both personally and professionally.
+                </p>
+            </section>
+            <img class="presentation__image" src="./assets/imagem.png" alt="Photo of Vinícius Freiry">
+        </div>
+        
+        <section class="skills">
+            <h2 class="skills__title">Skills</h2>
+            <div class="skills__carousel">
+                <button class="carousel__btn left" aria-label="Previous">&#10094;</button>
+                <div class="carousel__viewport">
+                    <div class="carousel__track">
+                        <div class="skill__card"><img src="./assets/python.svg" alt="Python"><p>Python</p></div>
+                        <div class="skill__card"><img src="./assets/html.svg" alt="HTML"><p>HTML</p></div>
+                        <div class="skill__card"><img src="./assets/css.svg" alt="CSS"><p>CSS</p></div>
+                        <div class="skill__card"><img src="./assets/javascript.svg" alt="JavaScript"><p>JavaScript</p></div>
+                        <div class="skill__card"><img src="./assets/java.svg" alt="Java"><p>Java</p></div>
+                        <div class="skill__card"><img src="./assets/c.svg" alt="C"><p>C</p></div>
+                        <div class="skill__card"><img src="./assets/csharp.svg" alt="C#"><p>C#</p></div>
+                    </div>
+                </div>
+                <button class="carousel__btn right" aria-label="Next">&#10095;</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Developed based on lessons from Alura.</p>
+    </footer>
+
+    <script src="./scripts/about_script.js"></script>
+</body>
+
+</html>
