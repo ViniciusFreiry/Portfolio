@@ -33,9 +33,9 @@
     flex: 0 0 18%;
     opacity: 0.4;
     text-align: center;
+    filter: blur(5px);
     transform: scale(0.75);
-    transition: opacity 0.5s ease-in;
-    transition: transform 0.5s ease-in;
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in, filter 0.5s ease-in;
 }
 
 .skill__card img {
@@ -68,9 +68,9 @@
 
 .skill__card.visible {
     opacity: 1;
+    filter: none;
     transform: scale(1);
-    transition: opacity 0.5s ease-out;
-    transition: transform 0.5s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.5s ease-out;
 }
 
 .skill__card.visible p {
