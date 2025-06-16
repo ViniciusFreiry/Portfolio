@@ -28,8 +28,15 @@ const track = document.querySelector(".carousel__track");
 const cards = Array.from(track.children);
 const visibleCount = 3;
 let index = 0;
+let isTransitioning = false;
 
 function updateVisibleCards() {
+    const cards = Array.from(track.children);
+    const skillsQtd = track.childElementCount - 1;
+    
+    if (index > skillsQtd) index = -1;
+    else if (index < -1) index = skillsQtd - 1;
+
     cards.forEach((card, i) => {
         card.classList.remove("visible");
         if (i - 1 >= index && i <= index + visibleCount) {
@@ -38,25 +45,45 @@ function updateVisibleCards() {
     });
 }
 
-function loopSlide(direction) {
-    if (direction === "next") {
-        const first = cards.shift();
-        cards.push(first);
-        track.appendChild(first);
-    } else {
-        const last = cards.pop();
-        cards.unshift(last);
-        track.insertBefore(last, track.firstChild);
-    }
-    updateVisibleCards();
-}
+updateVisibleCards();
 
 document.querySelector(".carousel__btn.right").addEventListener("click", () => {
-    loopSlide("next");
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    track.style.transition = "transform 0.5s ease-in-out";
+    track.style.transform = "translateX(-20.5%)";
+
+    index = 1;
+    updateVisibleCards();
+
+    setTimeout(() => {
+        track.appendChild(track.firstElementChild);
+        track.style.transition = "none";
+        track.style.transform = "translateX(0)";
+        isTransitioning = false;
+    }, 500);
 });
 
 document.querySelector(".carousel__btn.left").addEventListener("click", () => {
-    loopSlide("prev");
-});
+    if (isTransitioning) return;
+    isTransitioning = true;
 
-updateVisibleCards();
+    track.insertBefore(track.lastElementChild, track.firstElementChild);
+    track.style.transition = "none";
+    track.style.transform = "translateX(-20.5%)";
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            track.style.transition = "transform 0.5s ease-in-out";
+            track.style.transform = "translateX(0)";
+        });
+    });
+
+    index = 0;
+    updateVisibleCards();
+
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 500);
+});
